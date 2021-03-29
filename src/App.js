@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/auth/login/Login';
 import Register from './components/auth/register/Register';
-import Projects from './components/projects/Projects';
+import Projects from './components/projects/Projects/Projects';
 
 function App() {
   return (

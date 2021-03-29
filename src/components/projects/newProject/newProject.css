@@ -1,0 +1,55 @@
+.new-project-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 95%;
+}
+.button-project {
+  margin: 20px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  height: 2.75em;
+  font-size: 19px;
+  font-weight: bold;
+  background-color: black;
+  color: rgb(33, 250, 144);
+  -webkit-box-shadow: -1px 1px 13px 3px rgba(33, 250, 144, 0.76);
+  box-shadow: -1px 1px 13px 3px rgba(33, 250, 144, 0.76);
+  cursor: pointer;
+}
+.button-newproject {
+  margin: 20px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  width: 85%;
+  height: 2.75em;
+  font-size: 19px;
+  font-weight: bold;
+  background-color: black;
+  color: rgb(33, 250, 144);
+  -webkit-box-shadow: -1px 1px 13px 3px rgba(33, 250, 144, 0.76);
+  box-shadow: -1px 1px 13px 3px rgba(33, 250, 144, 0.76);
+  cursor: pointer;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.input-project {
+  width: 85%;
+  border: none;
+  background-color: rgb(89, 101, 111);
+  outline: none;
+  border-bottom: 1px solid black;
+  color: white;
+  margin-top: 25px;
+}
+.input-project::placeholder {
+  color: white;
+}

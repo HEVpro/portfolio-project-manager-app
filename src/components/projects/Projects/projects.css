@@ -1,0 +1,8 @@
+.project-app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+.main-section {
+  width: 100vw;
+}

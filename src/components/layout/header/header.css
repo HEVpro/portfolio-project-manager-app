@@ -1,0 +1,24 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #373f45;
+  padding: 15px;
+  color: white;
+}
+.welcome {
+  width: 14em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.username {
+  font-weight: bold;
+  margin-left: 5px;
+}
+.main-navbar > a {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: pointer;
+}
