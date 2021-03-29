@@ -1,0 +1,41 @@
+.task-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
+}
+.title {
+  width: 25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+}
+.project-title {
+  margin-left: 10px;
+  font-weight: bold;
+}
+.task-list-container > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35em;
+}
+.delete-project {
+  margin-top: 50px;
+
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 14em;
+  height: 2em;
+  -webkit-box-shadow: 0px 1px 11px 1px rgba(0, 0, 0, 0.85);
+  box-shadow: 0px 1px 11px 1px rgba(0, 0, 0, 0.85);
+}
+.delete-project:hover {
+  cursor: pointer;
+  -webkit-box-shadow: -1px 1px 13px 3px rgba(33, 250, 144, 0.76);
+  box-shadow: -1px 1px 13px 3px rgba(33, 250, 144, 0.76);
+  font-weight: bold;
+}

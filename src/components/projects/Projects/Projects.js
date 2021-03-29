@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../../layout/header/Header';
 import Sidebar from '../../layout/sidebar/Sidebar';
 import TaskForm from '../../tasks/taskForm/TaskFrom';
+import TaskList from '../../tasks/taskList/TaskList';
+
 import './projects.css';
 
 const Projects = () => {
@@ -12,7 +14,9 @@ const Projects = () => {
         <main>
           <Header />
           <TaskForm />
-          <div className="task-container"></div>
+          <div className="task-container">
+            <TaskList />
+          </div>
         </main>
       </div>
     </div>
