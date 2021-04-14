@@ -1,5 +1,8 @@
 li {
   list-style-type: none;
+  outline: none;
+  border: none;
+  box-shadow: none !important;
 }
 .button-listproject {
   background-color: transparent;

@@ -1,4 +1,4 @@
-li {
+.task-shadow {
   width: 100%;
   border: none;
   border-radius: 10px;
@@ -8,8 +8,8 @@ li {
   align-items: center;
   padding: 5px 10px;
   margin: 5px;
-  -webkit-box-shadow: 0px 1px 11px 1px rgba(0, 0, 0, 0.85);
-  box-shadow: 0px 1px 11px 1px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 0px 1px 11px 1px rgba(0, 0, 0, 0.85) !important;
+  box-shadow: 0px 1px 11px 1px rgba(0, 0, 0, 0.85) !important;
 }
 .buttons-container {
   display: flex;

@@ -16,6 +16,10 @@
   margin-left: 10px;
   font-weight: bold;
 }
+.no-active-project {
+  font-size: 28px;
+  margin: 3em 7em 0em 14em;
+}
 .task-list-container > ul {
   display: flex;
   flex-direction: column;

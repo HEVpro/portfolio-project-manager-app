@@ -1,0 +1,16 @@
+// PROJECT TYPES
+export const PROJECT_FORM = 'PROJECT_FORM';
+export const GET_PROJECTS = 'GET_PROJECTS';
+export const ADD_PROJECTS = 'ADD_PROJECTS';
+export const VALIDATE_FORM = 'VALIDATE_FORM';
+export const ACTIVE_PROJECT = 'ACTIVE_PROJECT';
+export const DELETE_PROJECT = 'DELETE_PROJECT';
+
+// TASKS TYPES
+export const PROJECT_TASKS = 'PROJECT_TASK';
+export const ADD_TASK = 'ADD_TASK';
+export const VALIDATE_TASK = 'VALIDATE_TASK';
+export const DELETE_TASK = 'DELETE_TASK';
+export const TASK_STATE = 'TASK_ESTATE';
+export const CURRENT_TASK = 'CURRENT_TASK';
+export const UPDATE_TASK = 'UPDATE_TASK';
