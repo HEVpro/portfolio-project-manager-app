@@ -21,7 +21,7 @@ const TaskList = () => {
 
   // Delete project
   const handleDelete = () => {
-    deleteProject(currentProject.id);
+    deleteProject(currentProject._id);
   };
   return (
     <div className="task-list-container">
@@ -33,7 +33,7 @@ const TaskList = () => {
         {tasksProject.length === 0 ? (
           <li>There are not tasks yet</li>
         ) : (
-          tasksProject.map((task) => <Task key={task.id} task={task} />)
+          tasksProject.map((task) => <Task key={task._id} task={task} />)
         )}
       </ul>
       <button type="button" className="delete-project" onClick={handleDelete}>

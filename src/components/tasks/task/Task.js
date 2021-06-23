@@ -15,7 +15,7 @@ const Task = ({ task }) => {
   const {
     deleteTask,
     getTasks,
-    changeTaskState,
+    updateTasks,
     getCurrentTask,
   } = tasksContext;
 
@@ -23,17 +23,19 @@ const Task = ({ task }) => {
 
   // delte task when click button
   const handleDeleteTask = (taskId) => {
-    deleteTask(taskId);
-    getTasks(currentProject.id);
+    deleteTask(taskId,currentProject._id );
+    getTasks(currentProject._id);
   };
   // modify state of tasks
   const changeState = (task) => {
-    if (task.completed) {
-      task.completed = false;
+    if (task.status === false) {
+      task.status = true;
+      updateTasks(task);
     } else {
-      task.completed = true;
+      task.status = false;
+      updateTasks(task);
     }
-    changeTaskState(task);
+
   };
   // add current task
   const selectTask = (task) => {
@@ -45,7 +47,7 @@ const Task = ({ task }) => {
       <p>{task.name}</p>
       <div className="buttons-container">
         <div className="task-state">
-          {task.completed ? (
+          {task.status ? (
             <button
               type="button"
               className="completed"
@@ -74,7 +76,7 @@ const Task = ({ task }) => {
           <button
             type="button"
             className="action-button"
-            onClick={() => handleDeleteTask(task.id)}
+            onClick={() => handleDeleteTask(task._id)}
           >
             <FontAwesomeIcon icon={faTrashAlt} />
           </button>

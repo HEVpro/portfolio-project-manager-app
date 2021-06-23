@@ -62,8 +62,7 @@ const TaskForm = () => {
     // Check if is update task or add task
     if (selectedTask === null) {
       // add task to task state
-      task.projectId = currentProject.id;
-      task.completed = false;
+      task.project = currentProject._id;
       addTask(task);
     } else {
       // update task

@@ -8,19 +8,18 @@ import {
   VALIDATE_FORM,
   ACTIVE_PROJECT,
   DELETE_PROJECT,
+  PROJECT_ERROR
 } from '../../types';
+import axiosClient from '../../config/axios';
 
 const ProjectState = (props) => {
-  const projects = [
-    { id: 1, name: 'Do own web' },
-    { id: 2, name: 'MERN project' },
-    { id: 3, name: 'Learn PHP' },
-  ];
+
   const initialState = {
     projects: [],
     projectForm: false,
     errorForm: false,
     activeProject: null,
+    message: null
   };
   // Dispatch for do the actions
   const [state, dispatch] = useReducer(projectReducer, initialState);
@@ -31,21 +30,28 @@ const ProjectState = (props) => {
       type: PROJECT_FORM,
     });
   };
-  const getProjects = () => {
-    dispatch({
-      type: GET_PROJECTS,
-      payload: projects,
-    });
+  const getProjects = async () => {
+    try {
+      const response = await axiosClient.get('/api/projects');
+      dispatch({
+        type: GET_PROJECTS,
+        payload: response.data.projects
+      })
+    } catch (error) {
+      console.log(error);
+    }
   };
   // Add new project
-  const addProject = (project) => {
-    //  Insert the id
-    project.id = projects.length + 1;
-    //  Add the project on the state
-    dispatch({
-      type: ADD_PROJECTS,
-      payload: project,
-    });
+  const addProject =async (project) => {
+    try {
+      const response = await axiosClient.post('/api/projects', project);
+      dispatch({
+        type: ADD_PROJECTS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Validate FORM
@@ -62,11 +68,25 @@ const ProjectState = (props) => {
     });
   };
   // Delete active project
-  const deleteProject = (projectId) => {
-    dispatch({
-      type: DELETE_PROJECT,
-      payload: projectId,
-    });
+  const deleteProject = async(projectId) => {
+    try {
+      await axiosClient.delete(`/api/projects/${projectId}`);
+      dispatch({
+        type: DELETE_PROJECT,
+        payload: projectId,
+      });
+    } catch (error) {
+      const alert = {
+        msg: 'There are an error!',
+        category: 'alert-error'
+      }
+      dispatch({
+        type: PROJECT_ERROR,
+        payload: alert
+      })
+
+    }
+
   };
 
   return (
@@ -76,6 +96,7 @@ const ProjectState = (props) => {
         projectForm: state.projectForm,
         errorForm: state.errorForm,
         activeProject: state.activeProject,
+        message: state.message,
         showForm,
         getProjects,
         addProject,

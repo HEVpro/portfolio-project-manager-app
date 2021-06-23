@@ -1,8 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AlertContext from '../../../context/alerts/alertContext';
+import AuthContext from '../../../context/auth/authContext';
 import './styles.css';
 
-const Login = () => {
+const Login = (props) => {
+  // Geth the values from the context
+  const alertContext = useContext(AlertContext);
+  const { alert, showAlert } = alertContext;
+
+  const authContext = useContext(AuthContext);
+  const { login, msg, autenticated } = authContext;
+
+  // Just in case that the user was logged successfully or another login error.
+  useEffect(() => {
+    if (autenticated) {
+      props.history.push('/projects');
+    }
+    if (msg) {
+      showAlert(msg.msg, msg.category);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [msg, autenticated, props.history]);
+
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -18,14 +38,20 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Validate not empty fields
+    if (email.trim() === '') {
+      showAlert('All the fields are required!', 'alert-error');
+    }
+    login({ email, password });
   };
   return (
     <div className="user-form">
+      {alert ? <div className={`${alert.category}`}>{alert.msg}</div> : null}
       <div className="form">
         <h1>Log in</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-field">
-            <label htmlfor="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -36,7 +62,7 @@ const Login = () => {
             ></input>
           </div>
           <div className="form-field">
-            <label htmlfor="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
